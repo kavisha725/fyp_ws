@@ -7,7 +7,7 @@ ROS packages used in our final year project robot. Fully tested on an SBC with U
 
 The two-wheeled self-balancing Personal Mobility Vehicle capable of manual, tele-op and autonomous navigation. 
 
-![](https://raw.githubusercontent.com/kavisha725/fyp_simulation/master/pics/results.png) 
+![](https://raw.githubusercontent.com/kavisha725/fyp_ws/master/pics/results.png) 
 
 ---
 
@@ -15,7 +15,7 @@ The two-wheeled self-balancing Personal Mobility Vehicle capable of manual, tele
 
 CAD design. 
 
-![](https://raw.githubusercontent.com/kavisha725/fyp_simulation/master/pics/platform.jpg) 
+![](https://raw.githubusercontent.com/kavisha725/fyp_ws/master/pics/platform.jpg) 
 
 ---
 
@@ -23,7 +23,7 @@ CAD design.
 
 Block diagram.
 
-![](https://raw.githubusercontent.com/kavisha725/fyp_simulation/master/pics/block_diagram.png) 
+![](https://raw.githubusercontent.com/kavisha725/fyp_ws/master/pics/block_diagram.png) 
 
 ---
 
@@ -31,7 +31,7 @@ Block diagram.
 
 Modifications to the typical ROS navigation stack. 
 
-![](https://raw.githubusercontent.com/kavisha725/fyp_simulation/master/pics/ROS_custom_nav_stack.png.png) 
+![](https://raw.githubusercontent.com/kavisha725/fyp_ws/master/pics/ROS_custom_nav_stack.png.png) 
 
 ---
 
