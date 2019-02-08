@@ -1,0 +1,23 @@
+<launch>
+
+  <node name="send_goal" pkg="app_interface" type="send_goal" respawn = "true" output="screen" >
+    <!--param name="origin_x" value="-6.8999999999999915"/-->
+    <!--param name="origin_y" value="-5.8999999999999915"/-->
+    <!--param name="resolution" value="0.05"/-->
+    <!--param name="map_height" value="194"/-->
+    <!--param name="map_width" value="231"/-->
+    <!--param name="tolerance" value="0.5"/-->
+
+    <param name="origin_x" value="-12.2"/>
+    <param name="origin_y" value="-12.2"/>
+    <param name="resolution" value="0.05"/>
+    <param name="map_height" value="544"/>
+    <param name="map_width" value="544"/>
+    <param name="tolerance" value="0.5"/>
+
+  </node>
+
+  <node pkg="app_interface" name="server_read" type="server_read.py" output="screen"/>
+  <node pkg="app_interface" name="server_update" type="server_update.py" output="screen"/>
+
+</launch>

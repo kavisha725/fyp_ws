@@ -1,0 +1,23 @@
+<launch>
+
+   <master auto="start"/>
+
+    <include file="$(find rob_loc)/launch/robot_localization.launch"/>
+    <include file="$(find nav_stack)/launch/freenect_lite.launch"/>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find nav_stack)/config/rviz/kinect_test.rviz" />
+
+  <!-- Run a passthrough filter to clean NaNs -->
+  <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />
+  
+  <node pkg="nodelet" type="nodelet" name="passthrough" args="load pcl/PassThrough pcl_manager" output="screen">
+    <remap from="~input" to="/camera/depth/points" />
+    <rosparam>
+      filter_field_name: z
+      filter_limit_min: 0.01
+      filter_limit_max: 1.72
+      filter_limit_negative: False
+    </rosparam>
+  </node>
+
+</launch> 

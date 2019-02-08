@@ -1,0 +1,34 @@
+<launch>
+    
+    <arg name="lidar_link" default="lidar_link" />
+    <!--node pkg="tf" type="static_transform_publisher" name="lidar_link_broadcaster" args="0.14 0 0.395 0 0 0 1 base_link $(arg lidar_link) 100" /--><!--tele-op mode -->
+    <node pkg="tf" type="static_transform_publisher" name="lidar_link_broadcaster" args="0.24 0 0.29 0 0 0 1 base_link $(arg lidar_link) 100" /><!--human mode -->
+
+    <!--include file="$(find rplidar_ros)/launch/view_rplidar.launch"/-->
+    <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
+      <param name="serial_port"         type="string" value="/dev/ttyUSB0"/>
+      <param name="serial_baudrate"     type="int"    value="115200"/><!--A1/A2 -->
+      <param name="frame_id"            type="string" value="$(arg lidar_link)"/>
+      <param name="inverted"            type="bool"   value="false"/>
+      <param name="angle_compensate"    type="bool"   value="true"/>
+    </node>
+
+    <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filter">
+      <rosparam command="load" file="$(find nav_stack)/config/lidar/lidar_leg_det_filter.yaml" />
+    </node>
+
+    <!--include file="$(find srl_laser_detectors)/launch/learned_detector_with_segmentation.launch"/-->
+  <include file="$(find srl_laser_detectors)/launch/learned_detector_with_segmentation.launch"> 
+    <arg name="laser"                           default="scan_filtered"/>
+    <arg name="adaboost_threshold"              default="0.9999"/>
+    <arg name="distance_threshold"              default="0.2"/>
+    <arg name="min_avg_distance_from_sensor"    default="0.3"/>
+    <arg name="max_avg_distance_from_sensor"    default="4"/>
+    <arg name="min_points_per_segment"          default="5"/>
+    <arg name="max_points_per_segment"          default="200"/>
+    <arg name="min_segment_width"               default="0.2"/>
+  </include> 
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find nav_stack)/config/rviz/leg_detect.rviz" />
+
+</launch> 

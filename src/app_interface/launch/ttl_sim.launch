@@ -1,0 +1,9 @@
+<launch>
+
+
+<include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch"> </include> <!--Launch the robot-->
+<include file="$(find turtlebot_gazebo)/launch/amcl_demo.launch"> </include> <!--Launch amcl and movebase-->
+<node name="rviz" pkg="rviz" type="rviz" args="-d $(find app_interface)/config/rviz/navigation.rviz"/>
+
+
+</launch>

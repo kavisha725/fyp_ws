@@ -1,0 +1,14 @@
+<!-- Launcher robot_localization package -->
+
+<launch>
+  <node pkg="base_controller" type="odometry_publisher" name="base_controller"/>
+  <node pkg="tf" type="static_transform_publisher" name="imu_link_broadcaster" args="0 0 0 0 0 0 1 base_link imu_link 100" />
+  <node pkg="tf" type="static_transform_publisher" name="lidar_link_broadcaster" args="0.24 0 0.485 0 0 0 1 base_link lidar_link 100" />
+  <node 
+    pkg="robot_localization" 
+    type="ekf_localization_node" 
+    name="robot_localization_ekf" 
+    clear_params="true">
+    <rosparam command="load" file="$(find rob_loc)/param/ekf_params.yaml"/>
+  </node>
+</launch>

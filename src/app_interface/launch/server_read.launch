@@ -1,0 +1,5 @@
+<launch>
+
+<node pkg="app_interface" name="server_read" type="server_read.py" output="screen"/>
+
+</launch>

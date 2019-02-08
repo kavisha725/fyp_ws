@@ -1,0 +1,6 @@
+<launch>
+<include file="$(find map_build)/launch/robot_localization.launch"/><!--robot_localization-->
+<node pkg="map_build" type="scan_remapper.py" name="scan_remapper"/><!--updates scan header timestamps-->
+<include file="$(find map_build)/launch/gmapping.launch"/> <!--gmapping-->
+<node type="rviz" name="rviz" pkg="rviz" args="-d $(find map_build)/config/rviz_config.rviz" /><!--rviz-->
+</launch>

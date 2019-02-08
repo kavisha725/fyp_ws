@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="base_controller" type="odometry_publisher" name="base_controller">
+    <param name="gyro_offset"  type="double" value="0.0125"/>
+  </node>
+</launch>

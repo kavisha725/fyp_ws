@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!--node pkg="tf" type="static_transform_publisher" name="camera_link_broadcaster" args="0.20 0 0.293 0 0.349 0 pitch_link camera_link 100" /--><!--tele-op mode 0.14 0 0.32 0 -0.075 0 -->
+  
+  <include file="$(find freenect_launch)/launch/freenect.launch"> 
+    <arg name="publish_tf"                      default="true" /> <!--false if published externally -->
+    <arg name="depth_processing"                default="true"/> <!-- needed for pointcloud -->
+    <arg name="data_skip"                       default="10"/> <!-- 0 -10 -->
+    
+    <arg name="depth_registration"              default="false"/>
+    <arg name="rgb_processing"                  default="false"/>
+    <arg name="ir_processing"                   default="false"/>
+    <arg name="depth_registered_processing"     default="false"/>
+    <arg name="disparity_processing"            default="false"/>
+    <arg name="disparity_registered_processing" default="false"/>
+    <arg name="hw_registered_processing"        default="false" />
+    <arg name="sw_registered_processing"        default="false" />  
+  </include> 
+
+</launch>
