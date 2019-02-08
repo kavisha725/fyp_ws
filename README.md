@@ -31,7 +31,7 @@ Block diagram.
 
 Modifications to the typical ROS navigation stack. 
 
-![](https://raw.githubusercontent.com/kavisha725/fyp_ws/master/pics/ROS_custom_nav_stack.png.png) 
+![](https://raw.githubusercontent.com/kavisha725/fyp_ws/master/pics/ROS_custom_nav_stack.png) 
 
 ---
 
