@@ -1,5 +1,7 @@
 # fyp_ws
 ROS packages used in our final year project robot. Fully tested on an SBC with Ubuntu 16.04LTS and ROS Kinetic.
+- Paper: https://ieeexplore.ieee.org/document/8868788
+- Video: https://youtu.be/5MKVgartC3g
 
 ---
 
